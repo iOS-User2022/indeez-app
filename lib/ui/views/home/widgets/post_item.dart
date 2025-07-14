@@ -39,6 +39,14 @@ Widget buildPostItem(BuildContext context, int index, HomeViewModel viewModel) {
       }
     }
   }
+  if (viewModel.homePostModel[index].resourceType == "audio") {
+    if (viewModel.homePostModel[index].mediaItems!.isNotEmpty) {
+      for (var item in viewModel.homePostModel[index].mediaItems!) {
+        fgUrl = item.mediaUrl ?? '';
+      }
+    }
+    precacheImage(CachedNetworkImageProvider(selectedImageUrl), context);
+  }
 
   final reactionsMap =
       viewModel.homePostModel[index].reactionsCount?.counts ?? {};

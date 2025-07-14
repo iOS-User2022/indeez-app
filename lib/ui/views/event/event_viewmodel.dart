@@ -61,7 +61,8 @@ class EventViewModel extends BaseViewModel {
       address: 'Address',
     ),
   ];
-  late final ValueNotifier<List<Event>> _selectedEvents;
+  late final ValueNotifier<List<Event>> _selectedEvents =
+      ValueNotifier<List<Event>>([]);
   CalendarFormat calendarFormat = CalendarFormat.month;
   RangeSelectionMode rangeSelectionMode = RangeSelectionMode
       .toggledOff; // Can be toggled on/off by longpressing a date
